@@ -46,11 +46,33 @@ The data set was written to a csv file as _**tidy_data.csv**_.
 
 It was required to calculate the mean of the values from each column grouped by subject and activity. Since there were many columns a vector of the column names was created to use in the aggregate() function. This function was used to calculate the mean grouped by subject and activity. The data was then written to a csv file as _**mean_summary_by_Subject_and_Activity.csv**_.
 
-### Reading the data files
+### Running the run_analysis.R Script
 
-Both the tidy_data.csv and the  mean_summary_by_Subject_and_Activity.csv were written with the write.csv() function using default values. The data can be read using read.csv(filename-including-path) and using defaults for all options.
+The run_analysis.R script included in the repo is well commented and reasonably self-explanatory. It must be run from withing the top-level of the original unzipped data driectory structure. The data unzips like this:
+* **UCI HAR Dataset**  
+  + **test (folder)**
+  + **train (folder)**
+  + _README.txt (file)_
+  + _features.txt (file)_
+  + _features_info.txt (file)_
+  + _activity_labels.txt (file)_  
 
-### The run_analysis.R Script
+The run_analysis.R script must be placed in the **UCI HAR Dataset** with the two folders and the other files. Like so:
+* **UCI HAR Dataset**  
+  + **test (folder)**
+  + **train (folder)**
+  + _README.txt (file)_
+  + _features.txt (file)_
+  + _features_info.txt (file)_
+  + _activity_labels.txt (file)_
+  + _run_analysis.R_
 
-The run_analysis.R script included in the repo is well commented and reasonably self-explanatory.
+It will write three output files to the current directory:
+* tidy_data.csv (the tidied data before summarization)
+* mean_summary_by_Subject_and_Activity.csv (summarized data as csv)
+* mean_summary_by_Subject_and_Activity.txt (summarized data as txt)
+ 
 
+### Reading the output data files
+
+Both the tidy_data.csv and the  mean_summary_by_Subject_and_Activity.csv were written with the write.csv() function using default values. The data can be read using read.csv(filename-including-path) and using defaults for all options. The required mean_summary_by_Subject_and_Activity.txt can be read using read.table().
