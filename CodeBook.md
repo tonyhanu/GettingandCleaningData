@@ -20,7 +20,9 @@ A more complete description of the data is included with the data and is contain
 
 **Subject:** Integer values from 1 to 30 representing the 30 volunteers who participated in the study. This data remains anonymized as the identity of the volunteers is not known and should remain anonymous anyway.
 
-**Activity:** Factor with 6 levels representing the activities: "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"
+**Activity:** Factor with 6 levels representing the activities: "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"  
+
+**Other Columns:** Numeric values of measured/processed data which are better described in the original dataset.
 
  _**str(tidy_data)**_  
 'data.frame':   10299 obs. of  88 variables:
