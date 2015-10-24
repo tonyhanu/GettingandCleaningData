@@ -76,3 +76,4 @@ colvect <- features[,2][meanstd]
 # create the aggregated data and write it out to a csv file
 mean_summary_by_Subject_and_Activity <- aggregate(tidydata[colvect],list(Subject=tidydata$Subject,Activity=tidydata$Activity), mean)
 write.csv(mean_summary_by_Subject_and_Activity, paste(writeFilePath, "mean_summary_by_Subject_and_Activity.csv"), row.names = FALSE, fileEncoding = "utf8")
+write.table(mean_summary_by_Subject_and_Activity, paste(writeFilePath, "mean_summary_by_Subject_and_Activity.txt"), row.names = FALSE, fileEncoding = "utf8")
