@@ -18,7 +18,11 @@ A more complete description of the data is included with the data and is contain
 
 ### Description of Data in Tidy Data Set
 
- str(tidy_data)
+**Subject:** Integer values from 1 to 30 representing the 30 volunteers who participated in the study. This data remains anonymized as the identity of the volunteers is not known and should remain anonymous anyway.
+
+**Activity:** Factor with 6 levels representing the activities: "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"
+
+ _**str(tidy_data)**_  
 'data.frame':   10299 obs. of  88 variables:
 
  * $ Subject                             : int  1 1 1 1 1 1 1 1 1 1 ...
@@ -113,10 +117,10 @@ A more complete description of the data is included with the data and is contain
 ### Description of Data in mean_summary_by_Subject_and_Activity
 
 This data was obtained using the aggregate function on the tidydata dataframe. 
-aggregate(tidydata[colvect],list(Subject=tidydata* $Subject,Activity=tidydata* $Activity), mean)
+**aggregate(tidydata[colvect],list(Subject=tidydata$Subject,Activity=tidydata$Activity), mean)**
 where colvect is simply a vector of the column names of tidydata without the first two columns – Subject and Activity
 
-str(mean_summary_by_Subject_and_Activity)
+_**str(mean_summary_by_Subject_and_Activity)**_  
 'data.frame':   180 obs. of  88 variables:
 
  * $ Subject                             : int  1 2 3 4 5 6 7 8 9 10 ...
