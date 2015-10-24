@@ -64,11 +64,13 @@ data_train <-data_train[,meanstd]
 # Bind columns from the training data set
 traindf <- cbind(subjects_train, activity_train, data_train, stringsAsFactors = FALSE)
 
+# ************************   Bind Test and Training Together   ***************************
 # Join the training and test data sets together and write the tidied data to a csv file
 tidy_data <- rbind(traindf, testdf)
 write.csv(tidy_data, paste(writeFilePath,"tidy_data.csv"), row.names = FALSE, fileEncoding = "utf8")
 
-# Calculate the mean of values in each column grouped by Subect and Activity
+
+# **********   Calculate the mean of values in each column grouped by Subect and Activity   **********
 # Create a column vector that includes the name of each column to be used in the aggregate function.
 colvect <- features[,2][meanstd]
 # create the aggregated data and write it out to a csv file
