@@ -6,15 +6,15 @@
 # The path strings are written for Windows and they are written for
 # the directory structure that I have used on my computer.
 
-testFilePath <- "C:\\GetCleanData\\Course Project\\UCI HAR Dataset\\test\\"
-trainFilePath <- "C:\\GetCleanData\\Course Project\\UCI HAR Dataset\\train\\"
+testFilePath <- "test\\"
+trainFilePath <- "train\\"
 testfiles <- c("subject_test.txt", "y_test.txt", "X_test.txt")
 trainfiles <- c("subject_train.txt", "y_train.txt", "X_train.txt")
-writeFilePath <- "C:\\GetCleanData\\Course Project\\UCI HAR Dataset\\"
+#writeFilePath <- "C:\\GetCleanData\\Course Project\\UCI HAR Dataset\\"
 
 # various useful variables to help transform the data
 activities <- factor(c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"))
-features <- read.table("C:\\GetCleanData\\Course Project\\UCI HAR Dataset\\features.txt", stringsAsFactors = FALSE)
+features <- read.table("features.txt", stringsAsFactors = FALSE)
 #create logical vector where mean or std appears in features
 meanstd <- grepl("(mean|std)", features[,2], ignore.case = TRUE)
 
@@ -67,7 +67,7 @@ traindf <- cbind(subjects_train, activity_train, data_train, stringsAsFactors = 
 # ************************   Bind Test and Training Together   ***************************
 # Join the training and test data sets together and write the tidied data to a csv file
 tidy_data <- rbind(traindf, testdf)
-write.csv(tidy_data, paste(writeFilePath,"tidy_data.csv"), row.names = FALSE, fileEncoding = "utf8")
+write.csv(tidy_data, "tidy_data.csv", row.names = FALSE, fileEncoding = "utf8")
 
 
 # **********   Calculate the mean of values in each column grouped by Subect and Activity   **********
@@ -75,5 +75,5 @@ write.csv(tidy_data, paste(writeFilePath,"tidy_data.csv"), row.names = FALSE, fi
 colvect <- features[,2][meanstd]
 # create the aggregated data and write it out to a csv file
 mean_summary_by_Subject_and_Activity <- aggregate(tidydata[colvect],list(Subject=tidydata$Subject,Activity=tidydata$Activity), mean)
-write.csv(mean_summary_by_Subject_and_Activity, paste(writeFilePath, "mean_summary_by_Subject_and_Activity.csv"), row.names = FALSE, fileEncoding = "utf8")
-write.table(mean_summary_by_Subject_and_Activity, paste(writeFilePath, "mean_summary_by_Subject_and_Activity.txt"), row.names = FALSE, fileEncoding = "utf8")
+write.csv(mean_summary_by_Subject_and_Activity, "mean_summary_by_Subject_and_Activity.csv", row.names = FALSE, fileEncoding = "utf8")
+write.table(mean_summary_by_Subject_and_Activity, "mean_summary_by_Subject_and_Activity.txt", row.names = FALSE, fileEncoding = "utf8")
