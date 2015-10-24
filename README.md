@@ -44,7 +44,7 @@ The data set was written to a csv file as _**tidy_data.csv**_.
 
 ### Summarizing the Data (Step 5 in the course project description)
 
-It was required to calculate the mean of the values from each column grouped by subject and activity. Since there were many columns a vector of the column names was created to use in the aggregate() function. This function was used to calculate the mean grouped by subject and activity. The data was then written to a csv file as _**mean_summary_by_Subject_and_Activity.csv**_.
+It was required to calculate the mean of the values from each column grouped by subject and activity. Since there were many columns a vector of the column names was created to use in the aggregate() function. This function was used to calculate the mean grouped by subject and activity. The data was then written to a csv file as _**mean_summary_by_Subject_and_Activity.csv**_ and also a _**mean_summary_by_Subject_and_Activity.txt**_ for uploading to Coursera.
 
 ### Running the run_analysis.R Script
 
